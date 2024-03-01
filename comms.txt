@@ -1,0 +1,11 @@
+gcc -std=c99 -Wall -pedantic -o naloga1 naloga1.c
+
+-std=c99 // version?
+-Wall // warning all
+-pedantic // bols explain
+-lm //math.h
+
+./naloga<test01.in
+
+export name=naloga
+make
