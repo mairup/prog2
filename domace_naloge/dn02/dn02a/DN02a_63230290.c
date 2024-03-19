@@ -87,6 +87,15 @@ int preberiSt(char current)
         }
 
         st = st * 10 + (int)current - '0';
+        if (st > 1000)
+        {
+            st = 100;
+        }
+        else if (st < -1000)
+        {
+            st = -100;
+        }
+
         current = getchar();
 
         if (current == '\n')
