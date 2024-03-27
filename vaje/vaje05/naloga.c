@@ -7,13 +7,13 @@
 int vsota(int *zac, int *kon)
 {
     int *p = zac;
-    int vsota = 0;
+    int sum = 0;
     while (p <= kon)
     {
-        vsota += *p;
+        sum += *p;
         p++;
     }
-    return vsota;
+    return sum;
 }
 
 void indeksInKazalec(int *t, int *indeks, int **kazalec)
@@ -37,7 +37,24 @@ void indeksInKazalec(int *t, int *indeks, int **kazalec)
 
 void frekvenceCrk(char *niz, int **frekvence)
 {
-    // dopolnite ...
+    int *pogostosti = (int *)calloc(26, sizeof(int));
+    *frekvence = pogostosti;
+    char *p = niz;
+    char znak;
+    // strlen(niz) vrne dolzino niza
+    while (*p != '\0')
+    {
+        znak = *p;
+        if (znak >= 'A' && znak <= 'Z')
+        {
+            pogostosti[*p - 'A']++;
+        }
+        else if (*p >= 'a' && *p <= 'z')
+        {
+            pogostosti[*p - 'a']++;
+        }
+        p++;
+    }
 }
 
 #ifndef test
