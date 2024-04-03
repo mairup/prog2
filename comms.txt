@@ -7,5 +7,7 @@ gcc -std=c99 -Wall -pedantic -o naloga1 naloga1.c
 
 ./naloga<test01.in
 
-export name=naloga
+export name=ime-dat
 make
+make test
+make test P=4-10
