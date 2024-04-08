@@ -26,40 +26,102 @@ int steviloZnakov(char *niz, char znak)
 
 char *kopirajDoZnaka(char *niz, char znak)
 {
-    int len = 0;
-    while (*niz != znak)
+    // if (niz == NULL)
+    // {
+    //     return NULL;
+    // }
+
+    // int len = 0;
+    // while (*niz != znak)
+    // {
+    //     if (*niz == '\0')
+    //     {
+    //         niz -= len;
+    //         return niz;
+    //     }
+
+    //     len++;
+    //     niz++;
+    //     // printf("%p\n", niz);
+    // }
+    // niz -= len;
+
+    // char *s = (char *)malloc(len * sizeof(char) + 1);
+    // for (int i = 0; i < len; i++)
+    // {
+    //     // printf("%c\n", *niz);
+
+    //     *s = *niz;
+    //     s++;
+    //     niz++;
+    // }
+
+    // s++;
+    // *s = '\0';
+
+    // s -= len - 1;
+
+    // return s;
+
+    char *pZnak = niz;
+    while (*pZnak != '\0' && *pZnak != znak)
+        pZnak++;
+
+    int dolzinaPodniza = pZnak - niz;
+
+    char *podniz = (char *)malloc(dolzinaPodniza + 1);
+
+    char *p = niz;
+    char *q = podniz;
+
+    for (int i = 0; i < dolzinaPodniza; i++)
     {
-        if (*niz == '\0')
-        {
-            niz -= len;
-            return niz;
-        }
-
-        len++;
-        niz++;
-        // printf("%p\n", niz);
+        *q++ = *p++;
     }
-    niz -= len;
+    *q = '\0';
 
-    char *s = (char *)malloc(len * sizeof(char) + 1);
-    for (int i = 0; i < len; i++)
+    return podniz;
+}
+
+char *kopirajDoZnaka2(char *niz, char znak)
+{
+    if (niz == NULL)
     {
-        // printf("%c\n", *niz);
-
-        *s = *niz;
-        s++;
-        niz++;
+        return '\0';
     }
 
-    s -= len;
+    int dolzinaNiza = strlen(niz);
+    char *pznak = strchr(niz, znak);
 
-    return s;
+    int dolzinaPodniza = (pznak = NULL) ? dolzinaNiza : pznak - niz;
+
+    char *podniz = (char *)malloc(dolzinaPodniza + 1);
+
+    strncpy(podniz, niz, dolzinaPodniza);
+    podniz[dolzinaPodniza] = '\0';
+    return podniz;
 }
 
 char **razcleni(char *niz, char locilo, int *stOdsekov)
 {
-    // popravite / dopolnite ...
-    return NULL;
+    if (niz == NULL)
+    {
+        return NULL;
+    }
+
+    int stlocil = steviloZnakov(niz, locilo) + 1;
+
+    char **odseki = (char **)malloc(stlocil * sizeof(char *));
+
+    char *p = niz;
+
+    for (int i = 0; i < stlocil; i++)
+    {
+        odseki[i] = kopirajDoZnaka(p, locilo);
+        p += strlen(odseki[i]) + 1;
+    }
+
+    return odseki;
 }
 
 #ifndef test
@@ -79,6 +141,8 @@ int main()
 
     char *s2 = kopirajDoZnaka("jazen niz z enim samim presledkom ", 's');
     printf("kopirajdoznaka: %s\n", s2);
+    free(s2);
+
     return 0;
 }
 
