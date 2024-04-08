@@ -26,17 +26,17 @@ void uredi(int **a, int **b, int **c)
     if (**a > **b && **a > **c)
     {
         zamenjaj(a, c);
-        if (**b > **c)
+        if (**b < **a)
         {
-            zamenjaj(b, c);
+            zamenjaj(b, a);
         }
     }
     else if (**b > **a && **b > **c)
     {
         zamenjaj(b, c);
-        if (**a > **c)
+        if (**a > **b)
         {
-            zamenjaj(a, c);
+            zamenjaj(a, b);
         }
     }
     else

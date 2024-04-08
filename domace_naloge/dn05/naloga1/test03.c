@@ -5,10 +5,10 @@
 #include "naloga1.h"
 
 int __main__() {
-    int tabela[] = {0, 5, 10, 3, 7, 8, 0};
+    int tabela[] = {0, 3, 5, 2, 7, 1, -6, -4, 7, 2, -6, 9, -9, 0};
     int n = 0;
     int* pk = NULL;
-    poisci(tabela + 1, &n, &pk);
+    poisci(tabela + 12, &n, &pk);
     printf("n = %d\n", n);
 
     exit(0);

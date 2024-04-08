@@ -5,8 +5,8 @@
 #include "naloga2.h"
 
 int __main__() {
-    int a = 10;
-    int b = 20;
+    int a = -5;
+    int b = -3;
     int* pa = &a;
     int* pb = &b;
 
