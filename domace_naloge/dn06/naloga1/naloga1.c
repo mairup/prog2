@@ -31,7 +31,7 @@ char *zdruzi(char **nizi, char *locilo)
         index++;
     }
 
-    char *zdruzenString = (char *)malloc(newSize * sizeof(char));
+    char *zdruzenString = (char *)malloc((newSize + 1) * sizeof(char));
 
     index = 0;
     int zdruzenStringIndex = 0;
@@ -53,7 +53,7 @@ char *zdruzi(char **nizi, char *locilo)
         locilo -= lociloLen;
         index++;
     }
-
+    zdruzenString[zdruzenStringIndex] = '\0';
     return zdruzenString;
 }
 
