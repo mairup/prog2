@@ -11,3 +11,6 @@ export name=ime-dat
 make
 make test
 make test P=4-10
+
+
+typedef struct _person person
