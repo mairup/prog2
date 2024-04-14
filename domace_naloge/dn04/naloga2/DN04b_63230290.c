@@ -13,7 +13,7 @@ int main()
         scanf("%d", &tab[i]);
     }
 
-    int counter = 0;
+    long counter = 0;
     for (int i = 0; i < n; i++)
     {
         tabn[i] = 0;
@@ -46,7 +46,7 @@ int main()
         counter += tabn[i];
     }
 
-    printf("%d\n", counter);
+    printf("%ld\n", counter);
 
     return 0;
 }
