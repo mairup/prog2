@@ -1,6 +1,7 @@
 {
   "files.associations": {
     "*.embeddedhtml": "html",
-    "cmath": "c"
+    "cmath": "c",
+    "stdio.h": "c"
   }
 }

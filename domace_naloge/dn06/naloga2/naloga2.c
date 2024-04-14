@@ -28,11 +28,45 @@ int **ap2pp(int (*kazalec)[N], int izvornoStVrstic, int ciljnoStVrstic)
 
 int (*pp2ap(int **kazalec, int izvornoStVrstic, int *ciljnoStVrstic))[N]
 {
-    // popravite / dopolnite
-    return NULL;
+    int(*tab)[N] = calloc((*ciljnoStVrstic * N), sizeof(int));
+    int tabI = 0;
+    int tabJ = 0;
+
+    // printf("avb\n");
+
+    for (int i = 0; i < izvornoStVrstic; i++)
+    {
+        int j = 0;
+        while (kazalec[i][j])
+        {
+            // printf("i = %d; j = %d\n", tabI, tabJ);
+
+            tab[tabI][tabJ] = kazalec[i][j];
+            // printf("tab[i][j] = %d\n", tab[tabI][tabJ]);
+            if (tabJ == (N - 1))
+            {
+                tabI++;
+                tabJ = 0;
+            }
+            else
+                tabJ++;
+            j++;
+        }
+    }
+
+    return tab;
 }
 
 #ifndef test
+
+int *TABELA[] = {
+    (int[]){7, 0},
+    (int[]){3, 12, 16, 1, 0},
+    (int[]){2, 8, 11, 0},
+    (int[]){5, 13, 9, 0},
+    (int[]){14, 4, 0},
+    (int[]){15, 6, 10, 0},
+};
 
 int main()
 {
@@ -53,6 +87,20 @@ int main()
     }
     free(get);
 
+    printf("F2: \n");
+    int izvornoStVrstic = sizeof(TABELA) / sizeof(TABELA[0]);
+    int ciljnoStVrstic = 4;
+    int(*rezultat)[N] = pp2ap(TABELA, izvornoStVrstic, &ciljnoStVrstic);
+
+    for (int i = 0; i < ciljnoStVrstic; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            printf("%3d", rezultat[i][j]);
+        }
+        printf("\n");
+    }
+    free(rezultat);
     return 0;
 }
 
