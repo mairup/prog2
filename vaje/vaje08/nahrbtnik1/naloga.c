@@ -29,9 +29,9 @@ int napolni(int *volumni, int *cene, int volN, int n, int ix)
         return 0;
     }
 
-    if (napolni_memo[volN][ix] != 0)
+    if (napolni_memo[volN][ix - 1] != 0)
     {
-        return napolni_memo[volN][ix];
+        return napolni_memo[volN][ix - 1];
     }
 
     if (volN >= volumni[ix - 1])
@@ -43,7 +43,7 @@ int napolni(int *volumni, int *cene, int volN, int n, int ix)
 
     najCena = najCena > cena ? najCena : cena;
 
-    napolni_memo[volN][ix] = najCena;
+    napolni_memo[volN][ix - 1] = najCena;
 
     return najCena;
 }
