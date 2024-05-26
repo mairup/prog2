@@ -33,7 +33,7 @@ int main(int argc, char **argv)
     if (argc != 3)
     {
         printf("Uporaba: %s vhodna_datoteka izhodna_datoteka\n", argv[0]);
-        return 1;
+        return 0;
     }
 
     int n;
