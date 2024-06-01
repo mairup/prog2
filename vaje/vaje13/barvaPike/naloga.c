@@ -13,11 +13,12 @@ int main(int argc, char **argv)
     fscanf(vhod, "%d%d\n", &sirina, &visina);
     fgets(temp, 10, vhod);
     free(temp);
-    int slikaSize = vrstica * stolpec * 3;
+
+    int slikaSize = sirina * visina * 3;
     unsigned char *slika = malloc(slikaSize * sizeof(unsigned char));
     fread(slika, sizeof(unsigned char), slikaSize, vhod);
     int i = (vrstica * sirina + stolpec) * 3;
-    printf("%d %d %d\n", slika[i], slika[i], slika[i + 2]);
+    printf("%d %d %d\n", slika[i], slika[i + 1], slika[i + 2]);
     fclose(vhod);
     return 0;
 }
