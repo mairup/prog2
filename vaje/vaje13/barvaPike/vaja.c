@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 
     char *vsebina = (char *)malloc(sirina * visina * 3);
     fread(vsebina, 1, sirina * visina * 3, vhodDat);
-    // for (int i = 0; i < sirina * visina * 3; i++)
+    // for (int i = 0; i < sirina * visina * 3; i += 3)
     // {
     //     printf("pixel:%d %d %d\n", vsebina[i], vsebina[i + 1], vsebina[i + 2]);
     // }
