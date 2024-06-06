@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// /long memo[100000][100];
+long memo[100000][100];
 long nacini(int n, int k)
 {
     // printf("n: %d, k: %d\n", n, k);
