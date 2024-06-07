@@ -1,4 +1,6 @@
-
+console.log('====================================');
+console.log("STARTED WORKER");
+console.log('====================================');
 let perc = [0, 0];
 const arrSize = 1000
 
