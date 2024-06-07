@@ -22,17 +22,28 @@
 
 // po potrebi dopolnite ...
 
-void nastavi(Vozlisce* zacetek) {
-    // dopolnite ...
+void nastavi(Vozlisce *zacetek)
+{
+    Vozlisce *temp = zacetek;
+    Vozlisce *prejsnje = zacetek;
+    temp->prejsnje = NULL;
+
+    while (temp->naslednje != NULL)
+    {
+        temp = temp->naslednje;
+        temp->prejsnje = prejsnje;
+        prejsnje = temp;
+    }
 }
 
 //=============================================================================
 
 #ifndef test
 
-int main() {
+int main()
+{
     // "Ce "zelite funkcijo <nastavi> testirati brez testnih primerov,
-    // dopolnite to funkcijo in prevedite datoteko na obi"cajen na"cin 
+    // dopolnite to funkcijo in prevedite datoteko na obi"cajen na"cin
     // (gcc naloga1.c).
     return 0;
 }
