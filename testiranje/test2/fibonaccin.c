@@ -27,7 +27,7 @@ int main()
 {
     int n1, n2, k;
     scanf("%d%d%d", &n1, &n2, &k);
-    for (int i = 0; i < k; i++)
+    for (int i = 0; i <= k; i++)
     {
         printf("fibn(%d) = [%lld]\n", i, fibn(n1, n2, i));
     }
